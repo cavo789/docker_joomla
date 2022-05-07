@@ -1,3 +1,5 @@
+# Étape 3 - Synchronisons Joomla avec notre ordinateur local
+
 Nous venons d'installer Joomla, on a pu installer l'une ou l'autre version de Joomla mais on constate que nous n'avons rien en local : si on supprime le container, on perds tout.
 
 Bien sûr, on peut installer une extension de sauvegarde comme Akeeba et s'amuser à prendre un backup; comme on le fait traditionnellement.
@@ -51,3 +53,12 @@ Si l'on ajoute une image depuis le gestionnaire des médias, on constatera que l
 ## Installation d'Akeeba backup et sauvegarde
 
 L'installation d'une extension ainsi que son utilisation n'est en rien différente. On peut installer Akeeba depuis le web puis lancer une sauvegarde. Si on utilise le profil par défaut, le `jpa` est sauvé dans le dossier `./site_joomla/administrator/com_akeebabackup/backup`; rien ne change.
+
+----
+
+À la fin de ce chapitre, nous avons appris :
+
+* à installer la version que nous voulions de Joomla et de créer notre site web,
+* synchroniser les fichiers de Joomla avec notre dique dur.
+
+Lors du prochain et dernier chapitre, nous ferons de même pour la base de données du site.

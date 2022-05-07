@@ -71,7 +71,7 @@ Si tu retournes sur l'URL [http://127.0.0.1:8080/](http://127.0.0.1:8080/) tu ve
 
 Puisqu'on a changé le fichier `docker-compose.yml` pour demander Joomla 3.10.6, hop, on relace `docker compose up -d` en ligne de commandes.
 
-Tu verras que DOcker va télécharger à nouveau (J3.10.6) mais qu'il ne va pas retélécharger MySQL puisqu'il l'a déjà.
+Tu verras que Docker va télécharger à nouveau (J3.10.6) mais qu'il ne va pas retélécharger MySQL puisqu'il l'a déjà.
 
 Et hop, [http://127.0.0.1:8080/](http://127.0.0.1:8080/) et cette fois c'est l'installateur J3.x qui est là.
 

@@ -1,3 +1,5 @@
+# Étape 2 - Installons Joomla
+
 Lancer la commande `docker compose up --detach` et montrer qu'ensuite, directement, on peut accéder à l'URL http://127.0.0.1:80 et qu'on a l'interface d'administration.
 
 Pourquoi le port `80`?  Expliquer la notion de port du fichier `docker-compose.yml`.
@@ -28,3 +30,9 @@ sed -i 's/public $offline = false/public $offline = true/g' configuration.php
 ```
 
 Si on rafraîchit le navigateur, on voit bien qu'on a mis le site hors ligne. Ce qu'on voit dans la session interactive correspond bien à ce qu'on a sur la page du navigateur; nous sommes bien occupés à modifier le site Joomla.
+
+----
+
+À la fin de ce chapitre, nous avons réussi à installer la version que nous voulions de Joomla et de créer notre site web.
+
+Lors du prochain chapitre, nous verrons comment synchroniser les fichiers entre le container et notre disque dur.
