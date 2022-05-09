@@ -1,6 +1,12 @@
 version: '3.1'
 
 services:
+  joomladb:
+    image: mysql:5.6
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+
   joomla:
     image: joomla
     restart: always
@@ -11,9 +17,3 @@ services:
     environment:
       JOOMLA_DB_HOST: joomladb
       JOOMLA_DB_PASSWORD: example
-
-  joomladb:
-    image: mysql:5.6
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: example

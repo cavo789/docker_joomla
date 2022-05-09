@@ -2,18 +2,20 @@
 
 > Ce chapitre ne s'applique pas aux utilisateurs qui travaillent sous Windows (mais bien si vous travaillez sous WSL).
 
+> Soyez certain d'être dans le sous-dossier step_1_php/3_permissions.
+
 Les fichiers qui sont créés depuis Docker sont des fichiers créés par le système d'exploitation Linux.
 
 Contrairement à Windows, le système des permissions Linux est plus strict avec une notion de groupe-utilisateur-reste_du_monde (le fameux `chmod`).
 
-Imaginons le script PHP ci-dessous qui crée un fichier dans le dossier courant :
+Imaginons que le script PHP qui s'exécute dans Docker serait le suivant, càd créer un fichier dans le dossier courant :
 
 ```php
-$fileName=__DIR__."/maintenant.txt";
-if (file_put_contents($fileName, "Nous sommes le $date" . PHP_EOL) !== false) {
-    echo "Le fichier $fileName a été créé";
+$filename=__DIR__."/maintenant.txt";
+if (file_put_contents($filename, "Nous sommes le $date" . PHP_EOL) !== false) {
+    echo "Le fichier $filename a été créé";
 } else {
-    echo "Erreur";
+    echo "Erreur, impossible de créer le fichier $filename";
 }
 ```
 
@@ -45,7 +47,7 @@ docker run --detach --name step_1_3_2 -p 83:80 -u $UID:$GID -v $(pwd):/var/www/h
 
 ----
 
-Cette fois-ci notre fichier est créé sans souci.
+Cette fois-ci, avec l'URL [http://127.0.0.1:82/](http://127.0.0.1:82/), notre fichier est créé sans souci.
 
 ![Le fichier est créé](./images/localhost_step_1_3_0.png)
 
@@ -62,11 +64,8 @@ drwxr-xr-x 2 christophe christophe 4096 May  7 22:06 images
 
 ----
 
-À la fin de ce chapitre, nous avons appris
+À la fin de ce chapitre, nous avons appris, en plus:
 
-* à utiliser Docker,
-* à définir la version de PHP que nous souhaitons utiliser
-* à synchroniser un dossier (et ses sous-dossiers) 
-* et à spécifier les permissions à utiliser.
+* à spécifier les permissions sur Docker doit utiliser lors de l'accès au système de fichiers.
 
 Un petit extra pour la route, utilisation d'un script Bash. Rendez-vous au prochain, et dernier, chapitre.

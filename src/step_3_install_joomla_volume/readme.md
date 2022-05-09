@@ -6,9 +6,11 @@ Bien sûr, on peut installer une extension de sauvegarde comme Akeeba et s'amuse
 
 On peut aussi veiller à synchroniser notre container (la partie Joomla ainsi que la partie base de données) avec notre disque dur. Cette synchronisation fait appel à ce qu'on nomme dans le monde Docker : un volume.
 
-Un volume peut être "interne" ou "externe". Interne veut dire que c'est Docker qui va le gérer et que si on tue le container, on va également perdre nos données ce qui n'est pas ce que l'on souhaite.
+----
 
-On va vouloir "mapper" le site Joomla à notre disque dur. Quand nous avions lancé une session interactive (grâce à `docker exec -it step_2_install_joomla_joomla_1 /bin/bash`), nous avions constaté que le dossier du site était `/var/www/html`. Ce dossier est le `WORKDIR` (répertoire de travail) de l'image Joomla. On peut retrouver cette information dans la documentation de l'image, après avoir lancé une session interactive ou encore lorsqu'on fait un `docker inspect joomla | grep --ignore-case "workingdir"`.
+Un volume peut être "interne" ou "externe". Interne veut dire que c'est Docker qui va le gérer et que si on supprime le container, on va également perdre nos données ce qui n'est pas ce que l'on souhaite.
+
+On va vouloir "mapper" le site Joomla à notre disque dur. Quand nous avions lancé une session interactive (grâce à `docker exec -it step_2_install_joomla-joomla-1 /bin/bash`), nous avions constaté que le dossier du site était `/var/www/html`. Ce dossier est le `WORKDIR` (répertoire de travail) de l'image Joomla. On peut retrouver cette information dans la documentation de l'image, après avoir lancé une session interactive ou encore lorsqu'on fait un `docker inspect joomla | grep --ignore-case "workingdir"`.
 
 
 Il suffit d'adapter le fichier `docker-compose.yml` et, pour le service Joomla, d'ajouter la gestion des *volumes*. 

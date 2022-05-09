@@ -22,15 +22,12 @@
 
       <p>
         <?php
-          $fileName=__DIR__."/maintenant.txt";
-          if (file_put_contents($fileName, "Nous sommes le $date" . PHP_EOL) !== false) {
-              echo "Le fichier $fileName a été créé";
+          $filename=__DIR__."/maintenant.txt";
+          if (file_put_contents($filename, "Nous sommes le $date" . PHP_EOL) !== false) {
+              echo "Le fichier $filename a été créé";
           } else {
-              echo "Erreur";
+              echo "Erreur, impossible de créer le fichier $filename";
           }
-
-        //   phpinfo();
-
         ?>
       </p>
     </div>

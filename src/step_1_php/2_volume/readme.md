@@ -1,9 +1,11 @@
 # Utilisation d'un volume
 
+> Soyez certain d'être dans le sous-dossier step_1_php/2_volume.
+
 Afin de synchroniser un fichier de notre disque dur avec le container, utilisons un volume:
 
 ```bash
-docker run --detach --name step_1_2 -p 81:80 -v $(pwd):/var/www/html php:7.4.29-apache
+docker run --detach --name step_1_2 -p 81:80 -v $(pwd):/var/www/html php:8.1.5-apache
 ```
 
 Si vous êtes sous Windows (MS DOS), remplacez `$(pwd)` par `%CD%` dans l'instruction ci-dessous.
@@ -18,7 +20,7 @@ Super ! Notre script s'exécute sans qu'on ait à "chipoter".
 
 ---- 
 
-Explication des nouveaux arguments utilisés dans notre commande `docker run --detach --name step_1_2 -p 81:80 -v $(pwd):/var/www/html php:7.4.29-apache`
+Explication des nouveaux arguments utilisés dans notre commande `docker run --detach --name step_1_2 -p 81:80 -v $(pwd):/var/www/html php:8.1.5-apache`
 
 * `--name step_1_2` : par clarté, nous utilisons un autre nom,
 * `-p 81:80` : cette fois, nous allons utiliser le port `81` de notre ordinateur et nous allons le mapper au port `80` du container,
@@ -32,10 +34,8 @@ Retournons dans notre navigateur et appuyons sur la touche <kbd>F5</kbd>. Le cha
 
 ![La modification est répércutée immédiatement après un refresh](./images/localhost_step_1_2_1.png)
 
-À la fin de ce chapitre, nous avons appris
+À la fin de ce chapitre, nous avons appris, en plus:
 
-* à utiliser Docker,
-* à définir la version de PHP que nous souhaitons utiliser,
 * à synchroniser un dossier (et ses sous-dossiers) de notre ordinateur avec le container.
 
 Dans la dernière partie de ce chapitre, nous allons garantir que les fichiers qui seraient créés depuis Docker le soient avec les bonnes permissions (`user:group` et `chmod`).

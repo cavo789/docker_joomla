@@ -1,6 +1,12 @@
 version: '3.1'
 
 services:
+  joomladb:
+    image: mysql:5.6
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+
   joomla:
     image: joomla
     restart: always
@@ -14,13 +20,3 @@ services:
     user: "1000:1000"
     volumes:
       - ./site_joomla:/var/www/html
-
-  joomladb:
-    image: mysql:5.6
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: example
-
-# volumes:
-#   site_web:
-#     external: true
