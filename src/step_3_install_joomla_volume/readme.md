@@ -12,41 +12,51 @@ Un volume peut être "interne" ou "externe". Interne veut dire que c'est Docker 
 
 On va vouloir "mapper" le site Joomla à notre disque dur. Quand nous avions lancé une session interactive (grâce à `docker exec -it step_2_install_joomla-joomla-1 /bin/bash`), nous avions constaté que le dossier du site était `/var/www/html`. Ce dossier est le `WORKDIR` (répertoire de travail) de l'image Joomla. On peut retrouver cette information dans la documentation de l'image, après avoir lancé une session interactive ou encore lorsqu'on fait un `docker inspect joomla | grep --ignore-case "workingdir"`.
 
+----
 
-Il suffit d'adapter le fichier `docker-compose.yml` et, pour le service Joomla, d'ajouter la gestion des *volumes*. 
+Il suffit d'adapter le fichier `docker-compose.yml` et, pour le service Joomla, d'ajouter la gestion des *volumes*. Nous allons faire correspondre le dossier `site_joomla` de notre ordinateur avec le site Joomla.
+
+**D'abord, pour éviter tout problème de droits d'accès, veuillez créer le dossier `site_joomla` vous même.**
+
+```bash
+mkdir -p site_joomla
+```
+
+Adaptons le fichier `docker-compose.yml` et ajoutons: 
 
 ```yml
     volumes:
       - ./site_joomla:/var/www/html
 ```
 
-**Pour éviter tout problème de droits d'accès, veuillez créer le dossier site_joomla vous même.**
+----
 
 La lecture est peut-être plus aisée de droite à gauche : on va faire correspondre le dossier `/var/www/html` qui se trouve dans le container Docker avec le dossier `site_joomla` se trouvant dans notre répertoire actuel; sur notre machine (=sur notre host).
 
-Si on relance le script `docker-up.sh`; on pourra constater qu'on aura bien, lors de la création de l'image, les fichiers de Joomla qui seront synchronisés avec notre disque dur.
+Si on relance la commande `docker compose up --detach`; on pourra constater qu'on aura bien, lors de la création de l'image, les fichiers de Joomla qui seront synchronisés avec notre disque dur.
 
 ## Droits d'accès sous Linux
 
-Sous Linux, si on fait un `ls -al`, on verra que le propriétaire des fichiers est `www-data` qui est l'utilisateur utilisé par le container. Il nous faut changer cela pour utiliser notre utilisateur local.
+Tout comme nous l'avons vu précédement, les fichiers / dossiers créés depuis Docker ne le sont pas avec notre utilisateur actif mais celui définit dans l'image. Pour PHP, nous l'avons vu, c'était l'utilisateur `root`.
 
-On peut lancer la ligne de commande:
+Pour Joomla, c'est `www-data` et on le voit lorsqu'on fait un `ls -al`. Il nous faut, ici aussi, changer cela pour utiliser notre utilisateur local.
+
+Tout d'abord supprimons le précédent dossier `site_joomla` puis recréons-le (afin d'avoir les bonnes permissions):
 
 ```bash
-sudo chown -R christophe:christophe ./site_web
+sudo rm -rf site_joomla
+mkdir -p site_joomla
 ```
 
-Maintenant, on peut modifier aisément les fichiers depuis son ordinateur en utilisant un IDE ou un éditeur tel que vscode. Si on modifie le fichier `configuration.php` pour mettre le site hors ligne ou encore modifier la variable `$debug`, c'est bien plus facile qu'aupavarant.
+Adaptons le fichier `docker-compose.yml` et pour y ajouter la notion de l'utilisateur mais pour cela il nous faudra deux valeurs, le `user id` et le `group id`.
 
-### Utilisation de l'utilisateur actif
-
-Sous Linux, on peut retrouver l'ID de son utilisateur et de son groupe comme ceci: `echo "Votre UID est $UID et votre GID est $GID"`. On peut donc modifier le fichier `docker-compose.yml` et, pour le service Joomla, définir les données pour l'utilisateur à utiliser: 
+Sous Linux, on peut retrouver l'ID de son utilisateur et de son groupe comme ceci: `echo "Votre UID est $UID et votre GID est $GID"`. Nous avons nos valeurs. Adaptons le fichier:
 
 ```yml
     user: "1000:1000"
 ```
 
-Ainsi, un fichier qui sera créé depuis Joomla utilisera le même utilisateur que si vous l'aviez créé depuis votre host.
+Relançons `docker compose up --detach` et, maintenant, les fichiers dans le dossier `site_joomla` ont les bonnes permissions; celles de votre utilisateur local.
 
 ## Ajout d'une image
 
@@ -60,7 +70,6 @@ L'installation d'une extension ainsi que son utilisation n'est en rien différen
 
 À la fin de ce chapitre, nous avons appris :
 
-* à installer la version que nous voulions de Joomla et de créer notre site web,
 * synchroniser les fichiers de Joomla avec notre dique dur.
 
-Lors du prochain et dernier chapitre, nous ferons de même pour la base de données du site.
+Si nous supprimons le container Joomla, nous n'allons plus perdre les fichiers de notre site web. Mais nous perdrons bien la base de données puisqu'elle n'est pas encore synchronisée localement. C'est ce que nous allons apprendre dans le prochain et dernier chapitre.

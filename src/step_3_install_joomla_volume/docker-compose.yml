@@ -17,6 +17,6 @@ services:
     environment:
       JOOMLA_DB_HOST: joomladb
       JOOMLA_DB_PASSWORD: example
-    user: "1000:1000"
     volumes:
       - ./site_joomla:/var/www/html
+    user: "1000:1000"

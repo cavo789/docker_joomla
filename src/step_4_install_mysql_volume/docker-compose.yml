@@ -23,7 +23,3 @@ services:
     user: "1000:1000"
     volumes:
       - ./db:/var/lib/mysql
-
-# volumes:
-#   site_web:
-#     external: true
