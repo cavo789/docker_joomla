@@ -68,4 +68,4 @@ drwxr-xr-x 2 christophe christophe 4096 May  7 22:06 images
 
 * à spécifier les permissions sur Docker doit utiliser lors de l'accès au système de fichiers.
 
-Un petit extra pour la route, utilisation d'un script Bash. Rendez-vous au prochain, et dernier, chapitre.
+Une dernière astuce pour la route : l'utilisation d'images Alpine. Suite au prochain chapitre.
