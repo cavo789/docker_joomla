@@ -51,7 +51,7 @@ Docker va commencer à télécharger `joomla` et `joomladb`
 
 Si on regarde la liste des images disponibles dans Docker Desktop, nous voyons que nous avons maintenant, `joomla` et `mysql`.
 
-![Docker desktop - Images joomla et mysql](./images/desktop_image_step_2.png.png)
+![Docker desktop - Images joomla et mysql](./images/desktop_image_step_2.png)
 
 On obtient aussi l'information en ligne de commande : `docker image list`
 
