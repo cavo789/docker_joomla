@@ -1,7 +1,8 @@
 {
     "exclude": [
-        "idee_vrac.md",
-        "Marc.md",
+        ".tmp",
+        "readme.md",
+        "slides.md",
         "src/step_3_install_joomla_volume/site_joomla/",
         "src/step_4_install_mysql_volume/site_joomla/"
     ]

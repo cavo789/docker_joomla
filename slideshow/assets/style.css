@@ -1,0 +1,134 @@
+/* Default font-size in slides */
+.reveal {
+    font-size: 32px;
+  }
+  
+  .reveal p, .reveal li {
+    color: darkblue;
+  }
+
+  #installer-joomla-facilement-avec-docker {
+      color: yellow;
+  }
+  
+  /* Target slides having a background image and when the title should be displayed */
+  section[data-background-image]:not(.hide_title) {
+    background-color:#ffffff78; /* white;*/
+    color: white; /* 487d9696 */
+    -webkit-border-radius: 60px;
+    -moz-border-radius: 60px;
+    border-radius: 60px;
+    border: 8px dotted #353535;
+    padding: 25px !important;
+    left: -25px !important;
+  }
+  
+  /* When the slide has a background image, define the font-color f.i. */
+  /*[data-background] h2,
+  [data-background] p,
+  [data-background] li {
+    color: white;
+  }*/
+  
+  .reveal .slides ol, .reveal .slides ul {
+      text-align: left;
+  }
+  
+  #slide_git_lab {
+      background-color:#0019ff40;
+  }
+  
+  #slide_git_lab p, #slide_git_lab code, #slide_git_lab a, #slide_git_lab strong {
+      color: white;
+  }
+  
+  #slide_git_basic_workflow {
+      color: white;
+  }
+  
+  .dark {
+      color: darkblue;
+  }
+  
+  /* Highlight what is bold */
+  strong {
+    color: #8f98ff;
+  }
+  
+  /* Hide the title */
+  .hide_title h2,
+  .hide_title h3,
+  .hide_title h4,
+  .hide_title h5,
+  .hide_title h6 {
+    display: none;
+  }
+  
+  .section_bottom_screen {
+    top: 500px !important;
+  }
+  
+  #first_slide  {
+    background-color: #f1d980;
+    padding: 40px;
+    color: #0a7da0 !important;
+  }
+  
+  #slide_advanced {
+      position: absolute;
+      top: 80px !important;
+  }
+  
+  code {
+      color: #000;
+      background: 0 0;
+      font-family: Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      word-wrap: normal;
+      line-height: 1.5;
+      -moz-tab-size: 4;
+      -o-tab-size: 4;
+      tab-size: 4;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none
+  }
+  
+  code{
+      max-height: inherit;
+      height: inherit;
+      padding: 0 1em;
+      display: block;
+      overflow: auto
+  }
+  
+  :not(pre)>code {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      margin-bottom: 1em
+  }
+  
+  :not(pre)>code {
+      position: relative;
+      padding: .1em;
+      border-radius: .3em;
+      color: #c92c2c;
+      border: 1px solid rgba(0,0,0,.1);
+      display: inline;
+      white-space: normal
+  }
+  
+  :not(pre)>code:after {
+      right: .75em;
+      left: auto;
+      -webkit-transform: rotate(2deg);
+      -moz-transform: rotate(2deg);
+      -ms-transform: rotate(2deg);
+      -o-transform: rotate(2deg);
+      transform: rotate(2deg)
+  }

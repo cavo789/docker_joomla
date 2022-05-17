@@ -1,0 +1,195 @@
+<!-- source https://github.com/webpro/reveal-md/blob/master/lib/template/reveal.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>{{{title}}}</title>
+
+
+    <link rel="shortcut icon" href="/favicon.ico"/>
+
+    <link rel="stylesheet" href="/dist/reveal.css" />
+    <link rel="stylesheet" href="/theme/solarized.css" id="theme" />
+    <link rel="stylesheet" href="{{{highlightThemeUrl}}}" />
+
+    <style type="text/css">
+      body {
+        background-color: white;
+      }
+
+      @media only screen {
+        body {
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+      }
+
+      .reveal {
+        font-size: 30px;
+      }
+
+      .reveal h1,
+      .reveal h2,
+      .reveal h3,
+      .reveal h4,
+      .reveal h5,
+      .reveal h6 {
+        color: rgba(26, 80, 102, 1);
+      }
+
+      .reveal p,
+      .reveal li {
+        color: rgba(0, 139, 172, 0.52);
+      }
+
+      .top-left-corner {
+        position: fixed;
+        z-index: 9;
+        top: 0;
+        left: 0;
+      }
+
+      .bottom-right-corner {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+      }
+
+      .controls {
+        right: 150px;
+        font-size: 50px;
+        z-index: 9;
+      }
+    </style>
+  </head>
+  
+  <link rel="stylesheet" href="/assets/style.css" />
+
+  <body>
+    <div class="reveal">
+      <div class="slides">{{{slides}}}</div>
+    </div>
+
+    <aside class="controls">
+      <a class="left" href="#">&#x25C4;</a>
+      <a class="right" href="#">&#x25BA;</a>
+      <a class="up" href="#">&#x25B2;</a>
+      <a class="down" href="#">&#x25BC;</a>
+    </aside>
+
+    <script src="/dist/reveal.js"></script>
+
+    <script src="/plugin/markdown/markdown.js"></script>
+    <script src="/plugin/highlight/highlight.js"></script>
+    <script src="/plugin/zoom/zoom.js"></script>
+    <script src="/plugin/notes/notes.js"></script>
+    <script src="/plugin/math/math.js"></script>
+
+    <script>
+      function extend() {
+          var target = {};
+          for (var i = 0; i < arguments.length; i++) {
+              var source = arguments[i];
+              for (var key in source) {
+                  if (source.hasOwnProperty(key)) {
+                      target[key] = source[key];
+                  }
+              }
+          }
+          return target;
+      }
+
+    
+      // default options to init reveal.js
+      var defaultOptions = {
+          controls: true,
+          progress: true,
+          history: true,
+          center: true,
+          transition: 'default', // none/fade/slide/convex/concave/zoom
+          plugins: [
+            RevealMarkdown,
+            RevealHighlight,
+            RevealZoom,
+            RevealNotes,
+            RevealMath
+            ]
+      };
+
+      var options = extend(defaultOptions);
+    </script>
+
+    {{#scriptPaths}}
+    <script src="/{{{.}}}"></script>
+    {{/scriptPaths}}
+
+    <script>
+      var $oldBackground = "";
+
+      Reveal.initialize(options);
+
+      Reveal.addEventListener("ready", function(event) {
+        // initialize the variable so we can restore the background
+        // when the user will "rewind" the presentation
+        $oldBackground = document.body.style.backgroundImage;
+
+        // Be sure the navigation is visible
+        var elem = document.querySelector(".controls");
+        if (typeof elem !== null) {
+          elem.style.fontSize = "50px";
+        }
+      });
+
+      /*
+       * Add a listener that will capture the current slide number
+       * (given by evt.indexh).
+       * Except on the very first slide, background, logos, ...
+       * will be removed so the attendance won't be disturb by
+       * unneeded visual content and will only see valuable
+       * information's : the slide content.
+       */
+      Reveal.addEventListener("slidechanged", function(evt) {
+        if (evt.indexh > 0) {
+          // Remove the background image during the presentation
+          // but not on the very first slide
+          document.body.style.backgroundImage = "none";
+
+          // No more on the first slide, hide things
+          var elems = document.querySelectorAll(".only-first-slide");
+
+          [].forEach.call(elems, function(elem) {
+            elem.style.display = "none";
+          });
+
+          // Reduce the size of the controls (left, right, top, bottom)
+          // and be sure to make them visible (not under the number of
+          // the current slide)
+          var elem = document.querySelector(".controls");
+          if (typeof elem !== null) {
+            elem.style.fontSize = "12px";
+          }
+        } else {
+          // The very first slide is displayed background
+          // Restore the background image and the height of the menu
+          // $('body').css('background-image', $oldBackground);
+          document.body.style.backgroundImage = $oldBackground;
+
+          // Back on the first slide, show things back
+          var elems = document.querySelectorAll(".only-first-slide");
+
+          [].forEach.call(elems, function(elem) {
+            elem.style.display = "block";
+          });
+
+          // Be sure the navigation is visible
+          var elem = document.querySelector(".controls");
+          if (typeof elem !== null) {
+            elem.style.fontSize = "50px";
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
