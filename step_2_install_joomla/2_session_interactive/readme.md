@@ -1,10 +1,10 @@
 # Étape 2.2 - Session interactive
 
-Si on lance `Docker Desktop` et qu'on se rends dans la liste des containers puis qu'on déplie le container en cours, on peut voir que le nom du service Apache est `step_2_install_joomla-joomla-1` (c'est-à-dire le nom du dossier en cours suivi du nom du service suivi du chiffre `1`).
+Si on lance `Docker Desktop` et qu'on se rends dans la liste des containers puis qu'on déplie le container en cours, on peut voir que le nom du service Apache est `1_installation-joomla-1` (c'est-à-dire le nom du dossier en cours suivi du nom du service suivi du chiffre `1`).
 
 On retrouve aussi le nom avec la ligne de commande `docker container list`.
 
-Du coup `docker exec -it step_2_install_joomla-joomla-1 /bin/bash` permet de lancer une console dans le container et de se promener dans l'arborescence du l'installation Joomla.
+Du coup `docker exec -it 1_installation-joomla-1 /bin/bash` permet de lancer une console dans le container et de se promener dans l'arborescence du l'installation Joomla.
 
 ----
 
@@ -15,6 +15,8 @@ sed -i 's/public $offline = false/public $offline = true/g' configuration.php
 ```
 
 Si on rafraîchit le navigateur, on voit bien qu'on a mis le site hors ligne. Ce qu'on voit dans la session interactive correspond bien à ce qu'on a sur la page du navigateur; nous sommes bien occupés à modifier le site Joomla.
+
+*Tapons la commande `exit` pour quitter la session interactive.*
 
 ----
 

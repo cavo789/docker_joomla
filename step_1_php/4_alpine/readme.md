@@ -1,4 +1,4 @@
-# Étape 1.4 - Recherche d'une image de type Alpine
+# Étape 1.4 - Extra - Recherche d'une image de type Alpine
 
 > Sous Linux, une image Alphine est synonyme d'ultra-légère. Le maximum a été retiré et juste l'essentiel est conservé.
 
@@ -30,4 +30,4 @@ Cela ne fonctionne que si et seulement si vos besoins sont hyper simples. Vous s
 
 <!-- .slide: data-background="./images/we-have-learned.jpg" data-background-size="cover" -->
 
-Un petit extra pour la route, utilisation d'un script Bash. Rendez-vous à la prochaine, et dernière, étape.
+Un dernier extra pour la route, utilisation d'un script Bash. Rendez-vous à la prochaine, et dernière, étape.

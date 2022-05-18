@@ -12,11 +12,11 @@ Si vous êtes sous Windows (MS DOS), remplacez `$(pwd)` par `%CD%` dans l'instru
 
 ----
 
-Exécutons notre script : [http://127.0.0.1:81](http://127.0.0.1:81).
+Rendez-nous à l'URL [http://127.0.0.1:81](http://127.0.0.1:81).
 
-Super ! Notre script s'exécute sans qu'on ait à "chipoter".
+Notre script s'exécute immédiatement. Nous ne devons plus lancer une console et créer à la main le fichier `index.php`.
 
-![](./images/localhost_step_1_2_0.png)
+![Notre script s'exécute directement](./images/localhost_step_1_2_0.png)
 
 ----
 

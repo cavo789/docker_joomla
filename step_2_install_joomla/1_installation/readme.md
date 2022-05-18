@@ -1,9 +1,10 @@
 # Étape 2.1 - Installons Joomla
 
+> Soyez certain d'être dans le sous-dossier step_2_install_joomla/1_installation pour exécuter les exemples fournis.
 
 Lors de la première étape, nous n'avions pas besoin d'une base de données, juste de PHP et d'Apache. Et comme il existe une image Docker qui reprend et PHP et Apache, c'était facile. Un coup de `docker run` et tout roule.
 
-Lorsqu'on a besoin de plusieurs *services*, une commande `docker run` ne suffit plus.
+Lorsqu'on a besoin de plusieurs *services*, une commande `docker run` ne suffit plus. Il faut alors utiliser `docker compose`.
 
 ----
 
@@ -146,12 +147,26 @@ Si on supprime le container Docker, nous perdons l'intégralité du site; base d
 
 ----
 
+Envie d'utiliser une autre version de PHP ? Rendez-vous sur la page des tags [https://hub.docker.com/_/joomla?tab=tags](https://hub.docker.com/_/joomla?tab=tags) et prêtez attention aux images de type `xxx-apache` (p.ex. `php8.1-apache`).
+
+Adaptez alors le fichier `docker-compose.yml` comme ceci-dessous.
+
+```yaml
+services:
+  joomla:
+    image: joomla:php8.1-apache
+```
+
+Et hop, vous voilà avec la version de PHP désirée.
+
+----
+
 <!-- .slide: data-background="./images/we-have-learned.jpg" data-background-size="cover" -->
 
 À la fin de cette étape, 
 
 * à créer un fichier `docker-compose.yml` afin de créer et associer plusieurs containers pour une application précise,
-* à installer la version que nous souhaitons de Joomla,
+* à installer la version que nous souhaitons de Joomla ainsi que celle de PHP,
 * à installer un second service qui, ici, est MySQL,
 * et à associer Joomla et MySQL
 

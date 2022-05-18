@@ -24,4 +24,8 @@ Nous aurons besoin d'une image Docker qui inclus PHP et Apache pour faire tourne
 
 Nous utiliserons les instructions `docker run`.
 
+----
 
+<!-- .slide: data-background="./images/attention.jpg" data-background-size="cover" -->
+
+Durant ce chapitre, lors de notre découverte de Docker, nous utiliserons des numéros de port à chaque fois différents pour accéder à notre site local. Nous verrons plus tard comment réutiliser le même numéro de port.

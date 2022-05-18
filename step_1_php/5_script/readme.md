@@ -1,4 +1,4 @@
-# Étape 1.5 - Utilisation d'un script Linux
+# Étape 1.5 - Extra - Utilisation d'un script Linux
 
 > Ce chapitre, optionnel, propose un script Bash qui nécessite Linux pour s'exécuter. Si vous êtes sous Windows (MS DOS), vous ne pourrez pas l'utiliser. Mais bien si vous êtes sous WSL.
 
@@ -23,6 +23,28 @@ docker: Error response from daemon: driver failed programming external connectiv
 ```
 
 En effet, nous disons que `step_1_1_bis` doit utiliser le port `80` mais ce dernier est déjà utilisé (par le container `step_1_1a`), il nous faudrait alors aussi changer le numéro du port (comme nous l'avons fait à chacune des étapes précédentes).
+
+----
+
+En ligne de commandes, pour stopper un container:
+
+```bash
+docker stop $(docker ps -a -q --filter="name=step_1_1a")
+```
+
+Puis, pour le supprimer:
+
+```bash
+ docker rm $(docker ps -a -q --filter="name=step_1_1a")
+```
+
+Un peu long...
+
+----
+
+<!-- .slide: data-background="./images/docker_desktop.png" data-background-size="cover" -->
+
+Plus facile avec Docker Dekstop, on supprime le container.
 
 ----
 

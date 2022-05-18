@@ -66,7 +66,7 @@ exit
 
 <!-- .slide: data-background="./images/localhost_step_1_1a_1.png" data-background-size="cover" -->
 
-Bingo ! Notre première instance Docker éxécutant un script PHP !
+Retournons dans notre navigateur et ... Bingo ! Notre première instance Docker éxécutant un script PHP !
 
 ----
 

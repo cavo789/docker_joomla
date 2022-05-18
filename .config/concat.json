@@ -1,9 +1,11 @@
 {
     "exclude": [
+        ".slides_output/",
         ".tmp",
         "readme.md",
         "slides.md",
-        "src/step_3_install_joomla_volume/site_joomla/",
-        "src/step_4_install_mysql_volume/site_joomla/"
+        "step_3_install_joomla_volume/site_joomla/",
+        "step_4_install_mysql_volume/db/",
+        "step_4_install_mysql_volume/site_joomla/"
     ]
 }

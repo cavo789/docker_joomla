@@ -1,7 +1,7 @@
 .tmp/
-src/step_1_hello_world/3_permissions/maintenant.txt
-src/step_1_hello_world/src/maintenant.txt
-src/step_3_install_joomla_volume/site_joomla
-src/step_4_install_mysql_volume/db
-src/step_4_install_mysql_volume/site_joomla
+step_1_php/3_permissions/maintenant.txt
+step_1_php/src/maintenant.txt
+step_3_install_joomla_volume/site_joomla
+step_4_install_mysql_volume/db
+step_4_install_mysql_volume/site_joomla
 tmp.*

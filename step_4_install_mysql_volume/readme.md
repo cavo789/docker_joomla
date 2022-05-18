@@ -4,11 +4,13 @@
 
 ----
 
+> Soyez certain d'être dans le sous-dossier step_4_install_mysql_volume pour exécuter les exemples fournis.
+
 Nous venons de voir comment conserver les fichiers de Joomla sur son disque dur. Ainsi, si on supprime le container Docker, on ne perds pas nos fichiers.
 
-Oui mais ? On perds la base de données puisque nous n'avons pas utilisé de volume pour, la même raison, garder trace de notre base de données si on supprime le container.
+<mark>Oui mais ? Et la base de données ?</mark>
 
-Lire "Where to Store Data" sur [https://hub.docker.com/_/mysql](https://hub.docker.com/_/mysql)
+Sous MySQL, une base de données est sauvée dans le dossier `/var/lib/mysql` (plus d'info sur [Where to Store Data](https://hub.docker.com/_/mysql))
 
 ----
 
@@ -18,44 +20,54 @@ Ceci fait, il faut adapter le fichier `docker-compose.yml` et, pour le service M
 
 **D'abord, pour éviter tout problème de droits d'accès, veuillez créer le dossier `db` vous même.**
 
+*Recréons aussi le dossier `site_joomla` (puisque, dans cet exemple, nous sommes dans un autre dossier que le précédent chapitre).*
+
 ```bash
 mkdir -p db
+mkdir -p site_joomla
 ```
 
 ----
 
-Adaptons le fichier `docker-compose.yml` et ajoutons: 
+Adaptons le fichier `docker-compose.yml` et ajoutons au niveau du server `joomladb` les lignes suivantes: 
 
-```yml
+```yaml
     user: "1000:1000"
     volumes:
       - ./db:/var/lib/mysql
 ```
 
-Pourquoi le dossier `/var/lib/mysql` ? Car c'est celui qui est référencé par MySQL comme le lieu où sont sauvegardé les données.
-
 ----
+
+Retournons dans Docker Desktop et supprimons notre container Joomla en cours d'exécution.
 
 Lançons la commande `docker compose up --detach`.
 
-Maintenant, si nous allons dans le dossier `./db`, nous pouvons en effet voir un dossier qui correspond à notre base de données.
-
-Ajoutons les données d'exemples et p.ex. un nouvel utilisateur puis, depuis Docker Desktop, supprimons le container comme nous l'avons fait pour les auttres exercices.
+Notez qu'il y a un petit délai nécessaire pour que Docker synchronise le container avec votre disque dur. Vous ne verrez pas les fichiers apparaître sur votre disque avant un délai de quelques secondes.
 
 ----
 
-Cette fois, tuons le site web : allons dans Docker Desktop et supprimer le container qui contient notre site web. Nous n'allons pas seulement l'arrêter mais bien le supprimer. 
+Maintenant, si nous allons dans le dossier `./db`, nous pouvons en effet voir un dossier qui correspond à notre base de données. Notre base de données se nommait `joomla_db`, nous avons bien un dossier local `/db/joomla_db`.
 
-Si nous n'avions pas fait de synchronisation (utilisation de volumes en terme Docker), nous aurions tout perdu. Mais maintenant, qu'en est-il ? 
+`n3fe9_` étant ici le préfixe pour nos tables Joomla.
+
+![Notre base de données](./images/joomla_db.png)
+
+----
+
+Ajoutons les données d'exemples et p.ex. un nouvel utilisateur puis, depuis Docker Desktop, supprimons une fois encore le container comme nous l'avons fait pour les autres exercices.
+
+Puisque, au terme de ce chapitre, nous avons synchroniser et les fichiers et la base de données; au lieu de tout perdre, nous nous attendons tout récupérer. Voyons ce qu'il en est. 
 
 Relançons la commande `docker compose up --detach` et voyons ce qu'il se passe...
 
 ----
 
-Nous récupérons notre site web, base de données comprises ! Notre site est de nouveau fonctionnel, les extensions que nous avions installés sont toujours présentes, nos articles, nos utilisateurs, ... tout est à nouveau là.
+<!-- .slide: data-background="./images/joomla_site_is_back.png" data-background-size="cover" -->
 
-Ceci parce que nous avons, cette fois, créer un volume externe (et donc persistant) et pour le site et pour la base de données.
+Nous récupérons notre site web, base de données comprises ! Notre site est de nouveau fonctionnel, les extensions que nous avions installées sont toujours présentes, nos articles, nos utilisateurs, ... tout est à nouveau là.
 
+Nos deux volumes externes (`db` et `site_joomla`) ont parfaitement remplis leur mission.
 
 ----
 
@@ -64,5 +76,5 @@ Ceci parce que nous avons, cette fois, créer un volume externe (et donc persist
 À la fin de ce dernier chapitre, nous avons appris :
 
 * à manipuler Docker et créer des sites web PHP / Apache,
-* à installer Joomla et de créer un site web "dockerisé" (=qui tourne sous forme de container dans Docker),
+* à installer Joomla et de créer un site web *dockerisé* (=qui tourne sous forme de container dans Docker),
 * à synchroniser les fichiers et la base de données de notre site.
