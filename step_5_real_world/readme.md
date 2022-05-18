@@ -18,7 +18,7 @@ Faites de même pour le client 2, rendez-vous dans le dossier du client concern�
 
 ----
 
-<!-- .slide: data-background="./images/step_5_real_world/images/containers.jpg" data-background-size="cover" -->
+<!-- .slide: data-background="./images/containers.jpg" data-background-size="cover" -->
 
 Pour utiliser des ports différents, adaptez le fichier `docker-compose.yml` et changez la ligne suivante:
 

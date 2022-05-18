@@ -16,7 +16,7 @@ La façon la plus simple est d'utiliser [Docker Dekstop](https://www.docker.com/
 
 Prenons le temps de découvrir Docker... Grâce à lui, il n'est plus nécessaire d'installer PHP ou Apache pour faire tourner un site web.
 
-On retrouve sur [Docker Hub](https://hub.docker.com) un très grand nombre "d'images" qui permettent d'exécuter des logiciels comme PHP, PHP+Apache, MySQL et bien, bien d'autre choses. 
+On retrouve sur [Docker Hub](https://hub.docker.com) un très grand nombre "d'images" qui permettent d'exécuter des logiciels comme PHP, PHP+Apache, MySQL et bien, bien d'autres choses. 
 
 ----
 
@@ -34,7 +34,7 @@ Nous changerons ensuite la version de PHP de `7.4` vers `8.1` en juste quelques 
 
 <!-- .slide: data-background="./step_1_php/images/background.png" data-background-size="cover" -->
 
-Nous aurons besoin d'une image Docker qui inclus PHP et Apache pour faire tourner notre script. Par chance, une telle image existe :-)
+Nous aurons besoin d'une image Docker qui inclut PHP et Apache pour faire tourner notre script. Par chance, une telle image existe :-)
 
 Nous utiliserons les instructions `docker run`.
 
@@ -112,11 +112,11 @@ exit
 
 <!-- .slide: data-background="./step_1_php/1_minimum/images/localhost_step_1_1a_1.png" data-background-size="cover" -->
 
-Retournons dans notre navigateur et ... Bingo ! Notre première instance Docker éxécutant un script PHP !
+Retournons dans notre navigateur et ... Bingo ! Notre première instance Docker exécutant un script PHP !
 
 ----
 
-Reprenons l'instruction que nous avions utilisé :
+Reprenons l'instruction que nous avions utilisée :
 
 ```bash
 docker run --detach --name step_1_1a -p 80:80 php:7.4.29-apache
@@ -196,7 +196,7 @@ Explication des nouveaux arguments utilisés dans notre commande `docker run --d
 
 Retournons dans notre navigateur et appuyons sur la touche <kbd>F5</kbd>. Le changement est immédiat.
 
-![La modification est répércutée immédiatement après un refresh](./step_1_php/2_volume/images/localhost_step_1_2_1.png)
+![La modification est repércutée immédiatement après un refresh](./step_1_php/2_volume/images/localhost_step_1_2_1.png)
 
 ----
 
@@ -216,11 +216,11 @@ Dans la troisième étape de ce chapitre, nous allons garantir que les fichiers 
 
 ----
 
-Les fichiers qui sont créés depuis Docker sont des fichiers créés par le système d'exploitation Linux (**même si vous êts sous Windows sur votre machine host**).
+Les fichiers qui sont créés depuis Docker sont des fichiers créés par le système d'exploitation Linux (**même si vous êtes sous Windows sur votre machine host**).
 
 Contrairement à Windows, le système des permissions Linux est plus strict avec une notion de groupe-utilisateur-reste_du_monde (le fameux `chmod`).
 
-Imaginons que le script PHP qui s'exécute dans Docker serait le suivant, càd créer un fichier dans le dossier courant :
+Imaginons que le script PHP qui s'exécute dans Docker serait le suivant, c.-à-d. créer un fichier dans le dossier courant :
 
 ```php
 $filename=__DIR__."/maintenant.txt";
@@ -342,7 +342,7 @@ docker: Error response from daemon: Conflict. The container name "/step_1_1a" is
 
 ----
 
-Docker nous dit que nous avons déjà un container nommé `step_1_1` précédement créé. Si nous changeons le nom en, p. ex. `step_1_1_bis`, nous aurons un autre souci :
+Docker nous dit que nous avons déjà un container nommé `step_1_1` précédemment créé. Si nous changeons le nom en, p. ex. `step_1_1_bis`, nous aurons un autre souci :
 
 ```text
 docker: Error response from daemon: driver failed programming external connectivity on endpoint step_1_1_bis (31dfed5214c2ebea24e059f7d4ca65c717bd0373b88d2adc4d02b67923c481ed): Bind for 0.0.0.0:80 failed: port is already allocated.
@@ -495,7 +495,7 @@ services:
       JOOMLA_DB_PASSWORD: example
 ```
 
-On définit ici la couche application (Joomla) sans préciser de version. Ce sera donc la dernière version `stable` de ce moment-là. On dit à Joomla que le serveur de base de données associé sera `joomladb` qu'on a définit plus haut, on indique que le port sera le port `80` et on définit aussi deux variable d'environnements pour préciser que le nom de la base de données sera `joomladb` et que le mot de passe associé est `example`.
+On définit ici la couche application (Joomla) sans préciser de version. Ce sera donc la dernière version `stable` de ce moment-là. On dit à Joomla que le serveur de base de données associé sera `joomladb` qu'on a définit plus haut, on indique que le port sera le port `80` et on définit aussi deux variables d'environnement pour préciser que le nom de la base de données sera `joomladb` et que le mot de passe associé est `example`.
 
 ----
 
@@ -503,7 +503,7 @@ On définit ici la couche application (Joomla) sans préciser de version. Ce ser
 
 Ce n'est pas une bonne idée de ne pas indiquer le numéro de version.
 
-Lorsque Docker voit `image: joomla`, il comprend `image: joomla:stable`. Il va donc chercher à télécharger la dernière version stable. Vous ne savez donc pas, à l'avance, si vous télécharger Joomla `4.1.2` ou `4.1.3` ou ...
+Lorsque Docker voit `image: joomla`, il comprend `image: joomla:stable`. Il va donc chercher à télécharger la dernière version stable. Vous ne savez donc pas, à l'avance, si vous téléchargez Joomla `4.1.2` ou `4.1.3` ou ...
 
 Il est toujours préférable de spécifier la version comme p. ex.  `image: joomla:4.1.2`. Vous vous éviterez des surprises.
 
@@ -535,13 +535,13 @@ Nous venons d'installer Joomla et MySQL. Si on exécute `ls -l` (ou `dir` sous D
 
 Comme nous l'avons vu lors de l'étape 1 d'introduction; tout se passe au sein du container. Comme si c'était une boîte noire. Les fichiers ont été installés dans le container, pas sur notre ordinateur.
 
-Si on supprime le container Docker, nous perdons l'intégralité du site; base de données y compris.
+Si on supprime le container Docker, nous perdons l'intégralité du site; base de données y comprise.
 
 ----
 
 Envie d'utiliser une autre version de PHP ? Rendez-vous sur la page des tags [https://hub.docker.com/_/joomla?tab=tags](https://hub.docker.com/_/joomla?tab=tags) et prêtez attention aux images de type `xxx-apache` (p. ex. `php8.1-apache`).
 
-Adaptez alors le fichier `docker-compose.yml` comme ceci-dessous.
+Adaptez alors le fichier `docker-compose.yml` comme ci-dessous.
 
 ```yaml
 services:
@@ -566,11 +566,11 @@ Toutefois notre site est éphémère. Apprenons à conserver nos fichiers et not
 
 ### Étape 2.2 - Session interactive
 
-Si on lance `Docker Desktop` et qu'on se rends dans la liste des containers puis qu'on déplie le container en cours, on peut voir que le nom du service Apache est `1_installation-joomla-1` (c'est-à-dire le nom du dossier en cours suivi du nom du service suivi du chiffre `1`).
+Si on lance `Docker Desktop` et qu'on se rend dans la liste des containers puis qu'on déplie le container en cours, on peut voir que le nom du service Apache est `1_installation-joomla-1` (c'est-à-dire le nom du dossier en cours suivi du nom du service puis du chiffre `1`).
 
 On retrouve aussi le nom avec la ligne de commande `docker container list`.
 
-Du coup `docker exec -it 1_installation-joomla-1 /bin/bash` permet de lancer une console dans le container et de se promener dans l'arborescence du l'installation Joomla.
+Du coup `docker exec -it 1_installation-joomla-1 /bin/bash` permets de lancer une console dans le container et de se promener dans l'arborescence de l'installation Joomla.
 
 ----
 
@@ -602,7 +602,7 @@ Lors du troisième chapitre, nous verrons comment synchroniser les fichiers entr
 
 > Soyez certain d'être dans le sous-dossier step_3_install_joomla_volume pour exécuter les exemples fournis.
 
-Nous venons d'installer Joomla, on a pu installer l'une ou l'autre version de Joomla mais on constate que nous n'avons rien en local : si on supprime le container, on perds tout.
+Nous venons d'installer Joomla, on a pu installer l'une ou l'autre version de Joomla mais on constate que nous n'avons rien en local : si on supprime le container, on perd tout.
 
 ----
 
@@ -622,7 +622,7 @@ Un volume peut être "interne" ou "externe". Interne veut dire que c'est Docker 
 
 On pourra supprimer le container Joomla mais tant qu'on ne supprime pas le volume interne, il reste en mémoire et Docker peut le réutiliser.
 
-Si on supprime et le container et le volume alors on perds tout.
+Si on supprime et le container et le volume alors on perd tout.
 
 ----
 
@@ -634,7 +634,7 @@ On va *mapper* le site Joomla à notre disque dur. Quand nous avions lancé une 
 
 Il faut adapter le fichier `docker-compose.yml` et, pour le service Joomla, d'ajouter la gestion des *volumes*. Nous allons faire correspondre le dossier `site_joomla` de notre ordinateur avec le site Joomla.
 
-**D'abord, pour éviter tout problème de droits d'accès, veuillez créer le dossier `site_joomla` vous même.**
+**D'abord, pour éviter tout problème de droits d'accès, veuillez créer le dossier `site_joomla` vous-même.**
 
 ```bash
 mkdir -p site_joomla
@@ -657,15 +657,15 @@ Retournons dans Docker Desktop et supprimons notre container Joomla en cours d'e
 
 Puis relançons la commande `docker compose up --detach`; on pourra constater qu'on aura bien, lors de la création de l'image, les fichiers de Joomla qui seront synchronisés avec notre disque dur.
 
-Allez voir le contenu du dossier `site_joomla` sur votre ordinateur : nous avons l'intégralité des fichiers du site; nous avons donc synchronisés le container et notre machine.
+Allez voir le contenu du dossier `site_joomla` sur votre ordinateur : nous avons l'intégralité des fichiers du site; nous avons donc synchronisé le container et notre machine.
 
 ### Étape 3.1 - Droits d'accès sous Linux
 
-Tout comme nous l'avons vu précédement, les fichiers / dossiers créés depuis Docker ne le sont pas avec notre utilisateur actif mais celui définit dans l'image. Pour PHP, nous l'avons vu, c'était l'utilisateur `root`.
+Tout comme nous l'avons vu précédemment, les fichiers / dossiers créés depuis Docker ne le sont pas avec notre utilisateur actif mais celui défini dans l'image. Pour PHP, nous l'avons vu, c'était l'utilisateur `root`.
 
 Pour Joomla, c'est `www-data` et on le voit lorsqu'on fait un `ls -al`. Il nous faut, ici aussi, changer cela pour utiliser notre utilisateur local.
 
-Tout d'abord supprimons le précédent dossier `site_joomla` puis recréons-le (afin d'avoir les bonnes permissions):
+Tout d'abord, supprimons le précédent dossier `site_joomla` puis recréons-le (afin d'avoir les bonnes permissions):
 
 ```bash
 sudo rm -rf site_joomla
@@ -674,7 +674,7 @@ mkdir -p site_joomla
 
 ----
 
-Adaptons le fichier `docker-compose.yml` et pour y ajouter la notion de l'utilisateur mais pour cela il nous faudra deux valeurs, le `user id` et le `group id`.
+Adaptons le fichier `docker-compose.yml` et pour y ajouter la notion de l'utilisateur, mais pour cela il nous faudra deux valeurs, le `user id` et le `group id`.
 
 Sous Linux, on peut retrouver l'ID de son utilisateur et de son groupe comme ceci:
 
@@ -696,7 +696,7 @@ Relançons `docker compose up --detach` et, maintenant, les fichiers dans le dos
 
 ### Étape 3.2 - Ajout d'une image
 
-Pour l'exemple, si on se rends dans le gestionnaire des médias de Joomla et qu'on ajoute une image, nous verrons bien cette image apparaître sur notre machine dans le dossier `./site_web/media`.
+Pour l'exemple, si on se rend dans le gestionnaire des médias de Joomla et qu'on ajoute une image, nous verrons bien cette image apparaître sur notre machine dans le dossier `./site_web/media`.
 
 Notre synchronisation fonctionne parfaitement (et dans les deux sens bien sûr).
 
@@ -735,7 +735,7 @@ Notre service `joomla` au complet dans le fichier `docker-compose.yml`.
 
 À la fin de ce chapitre, nous avons appris :
 
-* synchroniser les fichiers de Joomla avec notre dique dur.
+* synchroniser les fichiers de Joomla avec notre disque dur.
 
 Si nous supprimons le container Joomla, nous n'allons plus perdre les fichiers de notre site web. Mais nous perdrons bien la base de données puisqu'elle n'est pas encore synchronisée localement. C'est ce que nous allons apprendre dans le prochain et dernier chapitre.
 
@@ -747,7 +747,7 @@ Si nous supprimons le container Joomla, nous n'allons plus perdre les fichiers d
 
 > Soyez certain d'être dans le sous-dossier step_4_install_mysql_volume pour exécuter les exemples fournis.
 
-Nous venons de voir comment conserver les fichiers de Joomla sur son disque dur. Ainsi, si on supprime le container Docker, on ne perds pas nos fichiers.
+Nous venons de voir comment conserver les fichiers de Joomla sur son disque dur. Ainsi, si on supprime le container Docker, on ne perd pas nos fichiers.
 
 <mark>Oui mais ? Et la base de données ?</mark>
 
@@ -759,7 +759,7 @@ Comme nous l'avions fait pour Joomla lorsqu'on a créé un dossier `site_joomla`
 
 Ceci fait, il faut adapter le fichier `docker-compose.yml` et, pour le service MySQL cette fois, d'ajouter la gestion des *volumes*. Ajoutons directement le bon utilisateur:
 
-**D'abord, pour éviter tout problème de droits d'accès, veuillez créer le dossier `db` vous même.**
+**D'abord, pour éviter tout problème de droits d'accès, veuillez créer le dossier `db` vous-même.**
 
 *Recréons aussi le dossier `site_joomla` (puisque, dans cet exemple, nous sommes dans un autre dossier que le précédent chapitre).*
 
@@ -798,7 +798,7 @@ Maintenant, si nous allons dans le dossier `./db`, nous pouvons en effet voir un
 
 Ajoutons les données d'exemples et p. ex. un nouvel utilisateur puis, depuis Docker Desktop, supprimons une fois encore le container comme nous l'avons fait pour les autres exercices.
 
-Puisque, au terme de ce chapitre, nous avons synchroniser et les fichiers et la base de données; au lieu de tout perdre, nous nous attendons tout récupérer. Voyons ce qu'il en est. 
+Puisque, au terme de ce chapitre, nous avons synchronisé et les fichiers et la base de données; au lieu de tout perdre, nous nous attendons tout récupérer. Voyons ce qu'il en est. 
 
 Relançons la commande `docker compose up --detach` et voyons ce qu'il se passe...
 
@@ -806,9 +806,9 @@ Relançons la commande `docker compose up --detach` et voyons ce qu'il se passe.
 
 <!-- .slide: data-background="./step_4_install_mysql_volume/images/joomla_site_is_back.png" data-background-size="cover" -->
 
-Nous récupérons notre site web, base de données comprises ! Notre site est de nouveau fonctionnel, les extensions que nous avions installées sont toujours présentes, nos articles, nos utilisateurs, ... tout est à nouveau là.
+Nous récupérons notre site web, base de données comprises ! Notre site est de nouveau fonctionnel, les extensions que nous avions installées sont toujours présentes, nos articles, nos utilisateurs ... tout est à nouveau là.
 
-Nos deux volumes externes (`db` et `site_joomla`) ont parfaitement remplis leur mission.
+Nos deux volumes externes (`db` et `site_joomla`) ont parfaitement rempli leur mission.
 
 ----
 
@@ -840,11 +840,33 @@ Faites de même pour le client 2, rendez-vous dans le dossier du client concern�
 
 ----
 
+<!-- .slide: data-background="./step_5_real_world/images/containers.jpg" data-background-size="cover" -->
+
+Pour utiliser des ports différents, adaptez le fichier `docker-compose.yml` et changez la ligne suivante:
+
+```yaml
+ports:
+      - 80:80
+```
+
+en, par exemple,
+
+```yaml
+ports:
+      - 81:80
+```
+
+Pour ce client-là, l'URL deviendra alors `http://127.0.0.1:81`.
+
+----
+
 Vous n'auriez plus de souci d'URL, d'alias, de conflits (le client 1 est toujours sous PHP `7.x` mais le client 2 sous PHP `8.x`).
 
-Plus de risque non plus que la base de données de l'un écrase celle de l'autre.
+Plus de risque non plus que la base de données de l'un n'écrase celle de l'autre.
 
-Et vous pourriez-même créer une image Docker (avec la commande `docker build`), l'héberger sur votre Docker Hub privé (`docker push`) et lui dire qu'il peut la récupérer (`docker pull`) pour installer le site en local chez lui.
+Et vous pourriez même créer une image Docker (avec la commande `docker build`), l'héberger sur votre Docker Hub privé (`docker push`) et lui dire qu'il peut la récupérer (`docker pull`) pour installer le site en local chez lui.
+
+Et comme tout est en local, <mark>il est très facile également d'utiliser des outils de versionning type GitHub</mark> pour conserver trace des changements ainsi que simplifier le travail collaboratif.
 
 ## Merci de votre attention !
 
