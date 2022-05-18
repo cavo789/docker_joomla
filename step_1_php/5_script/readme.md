@@ -16,7 +16,7 @@ docker: Error response from daemon: Conflict. The container name "/step_1_1a" is
 
 ----
 
-Docker nous dit que nous avons déjà un container nommé `step_1_1` précédement créé. Si nous changeons le nom en, p.ex. `step_1_1_bis`, nous aurons un autre souci :
+Docker nous dit que nous avons déjà un container nommé `step_1_1` précédemment créé. Si nous changeons le nom en, p. ex. `step_1_1_bis`, nous aurons un autre souci :
 
 ```text
 docker: Error response from daemon: driver failed programming external connectivity on endpoint step_1_1_bis (31dfed5214c2ebea24e059f7d4ca65c717bd0373b88d2adc4d02b67923c481ed): Bind for 0.0.0.0:80 failed: port is already allocated.
@@ -58,4 +58,4 @@ Le script permet donc de simplifier l'exécution des commandes `docker run` comm
 
 À la fin de cette dernière étape du premier chapitre de découverte, nous avons appris, en plus, à utiliser un script qui va arrêter, supprimer et relancer un container. Facile et propre.
 
-Le script permet aussi de spécifier certaines variables comme p.ex. la version de PHP à utiliser.
+Le script permet aussi de spécifier certaines variables comme p. ex. la version de PHP à utiliser.

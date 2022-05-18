@@ -6,7 +6,7 @@
 
 > Soyez certain d'être dans le sous-dossier step_4_install_mysql_volume pour exécuter les exemples fournis.
 
-Nous venons de voir comment conserver les fichiers de Joomla sur son disque dur. Ainsi, si on supprime le container Docker, on ne perds pas nos fichiers.
+Nous venons de voir comment conserver les fichiers de Joomla sur son disque dur. Ainsi, si on supprime le container Docker, on ne perd pas nos fichiers.
 
 <mark>Oui mais ? Et la base de données ?</mark>
 
@@ -18,7 +18,7 @@ Comme nous l'avions fait pour Joomla lorsqu'on a créé un dossier `site_joomla`
 
 Ceci fait, il faut adapter le fichier `docker-compose.yml` et, pour le service MySQL cette fois, d'ajouter la gestion des *volumes*. Ajoutons directement le bon utilisateur:
 
-**D'abord, pour éviter tout problème de droits d'accès, veuillez créer le dossier `db` vous même.**
+**D'abord, pour éviter tout problème de droits d'accès, veuillez créer le dossier `db` vous-même.**
 
 *Recréons aussi le dossier `site_joomla` (puisque, dans cet exemple, nous sommes dans un autre dossier que le précédent chapitre).*
 
@@ -55,9 +55,9 @@ Maintenant, si nous allons dans le dossier `./db`, nous pouvons en effet voir un
 
 ----
 
-Ajoutons les données d'exemples et p.ex. un nouvel utilisateur puis, depuis Docker Desktop, supprimons une fois encore le container comme nous l'avons fait pour les autres exercices.
+Ajoutons les données d'exemples et p. ex. un nouvel utilisateur puis, depuis Docker Desktop, supprimons une fois encore le container comme nous l'avons fait pour les autres exercices.
 
-Puisque, au terme de ce chapitre, nous avons synchroniser et les fichiers et la base de données; au lieu de tout perdre, nous nous attendons tout récupérer. Voyons ce qu'il en est. 
+Puisque, au terme de ce chapitre, nous avons synchronisé et les fichiers et la base de données; au lieu de tout perdre, nous nous attendons tout récupérer. Voyons ce qu'il en est. 
 
 Relançons la commande `docker compose up --detach` et voyons ce qu'il se passe...
 
@@ -65,9 +65,9 @@ Relançons la commande `docker compose up --detach` et voyons ce qu'il se passe.
 
 <!-- .slide: data-background="./images/joomla_site_is_back.png" data-background-size="cover" -->
 
-Nous récupérons notre site web, base de données comprises ! Notre site est de nouveau fonctionnel, les extensions que nous avions installées sont toujours présentes, nos articles, nos utilisateurs, ... tout est à nouveau là.
+Nous récupérons notre site web, base de données comprises ! Notre site est de nouveau fonctionnel, les extensions que nous avions installées sont toujours présentes, nos articles, nos utilisateurs ... tout est à nouveau là.
 
-Nos deux volumes externes (`db` et `site_joomla`) ont parfaitement remplis leur mission.
+Nos deux volumes externes (`db` et `site_joomla`) ont parfaitement rempli leur mission.
 
 ----
 

@@ -116,14 +116,14 @@ Retournons dans notre navigateur et ... Bingo ! Notre première instance Docker 
 
 ----
 
-Reprennons l'instruction que nous avions utilisé :
+Reprenons l'instruction que nous avions utilisé :
 
 ```bash
 docker run --detach --name step_1_1a -p 80:80 php:7.4.29-apache
 ```
 
 On voit donc qu'on cible la version `7.4.29` de PHP. En se rendant sur la page
-[https://hub.docker.com/_/php?tab=tags](https://hub.docker.com/_/php?tab=tags) et en cherchant des images de type `-apache`, on retrouve p.ex. les versions `php:8.1.1-apache` ou encore `php:8.1.5-apache`.
+[https://hub.docker.com/_/php?tab=tags](https://hub.docker.com/_/php?tab=tags) et en cherchant des images de type `-apache`, on retrouve p. ex. les versions `php:8.1.1-apache` ou encore `php:8.1.5-apache`.
 
 ----
 
@@ -192,7 +192,7 @@ Explication des nouveaux arguments utilisés dans notre commande `docker run --d
 
 ----
 
-Éditons le fichier `index.php` et changeons p.ex. `Bruxelles` en `la Belgique`.
+Éditons le fichier `index.php` et changeons p. ex. `Bruxelles` en `la Belgique`.
 
 Retournons dans notre navigateur et appuyons sur la touche <kbd>F5</kbd>. Le changement est immédiat.
 
@@ -259,7 +259,7 @@ docker run --detach --name step_1_3_2 -p 83:80 -u $UID:$GID -v $(pwd):/var/www/h
 
 * `--name step_1_3` : comme d'habitude, utilisons un nom précis,
 * `-p 83:80` : cette fois-ci, ce sera le port `83`,
-* `-u $UID:$GID` : ce paramètre est le plus important ici, on indique à Docker qu'on veut que les fichiers / dossiers qui seraient créés depuis le container n'utilisent par `root:root` mais notre utilisateur actif ainsi que son groupe d'appartenance (p.ex. `christophe:christophe`)
+* `-u $UID:$GID` : ce paramètre est le plus important ici, on indique à Docker qu'on veut que les fichiers / dossiers qui seraient créés depuis le container n'utilisent par `root:root` mais notre utilisateur actif ainsi que son groupe d'appartenance (p. ex. `christophe:christophe`)
 
 ----
 
@@ -316,7 +316,7 @@ Là où l'image officielle fait 458MB, l'image alpine n'est fait plus de 62. Pr�
 
 L'intérêt de ce type d'images est donc de réduire l'occupation mémoire de votre ordinateur et de vous permettre de lancer plusieurs images sans trop de ralentissement. 
 
-Cela ne fonctionne que si et seulement si vos besoins sont hyper simples. Vous souhaitez p.ex. installer quelque chose avec `apt-get install` ? Impossible car le gestionnaire de paquets `apt` n'est pas installé. Vous avez vraiment le strict minimum et vous aurez à tout installer vous-même selon vos besoins.
+Cela ne fonctionne que si et seulement si vos besoins sont hyper simples. Vous souhaitez p. ex. installer quelque chose avec `apt-get install` ? Impossible car le gestionnaire de paquets `apt` n'est pas installé. Vous avez vraiment le strict minimum et vous aurez à tout installer vous-même selon vos besoins.
 
 ----
 
@@ -342,7 +342,7 @@ docker: Error response from daemon: Conflict. The container name "/step_1_1a" is
 
 ----
 
-Docker nous dit que nous avons déjà un container nommé `step_1_1` précédement créé. Si nous changeons le nom en, p.ex. `step_1_1_bis`, nous aurons un autre souci :
+Docker nous dit que nous avons déjà un container nommé `step_1_1` précédement créé. Si nous changeons le nom en, p. ex. `step_1_1_bis`, nous aurons un autre souci :
 
 ```text
 docker: Error response from daemon: driver failed programming external connectivity on endpoint step_1_1_bis (31dfed5214c2ebea24e059f7d4ca65c717bd0373b88d2adc4d02b67923c481ed): Bind for 0.0.0.0:80 failed: port is already allocated.
@@ -384,7 +384,7 @@ Le script permet donc de simplifier l'exécution des commandes `docker run` comm
 
 À la fin de cette dernière étape du premier chapitre de découverte, nous avons appris, en plus, à utiliser un script qui va arrêter, supprimer et relancer un container. Facile et propre.
 
-Le script permet aussi de spécifier certaines variables comme p.ex. la version de PHP à utiliser.
+Le script permet aussi de spécifier certaines variables comme p. ex. la version de PHP à utiliser.
 
 ## Étape 2 - ... Joomla vint ensuite
 
@@ -466,7 +466,7 @@ Notre application étant en cours d'exécution, on peut y accéder depuis l'URL 
 
 ----
 
-Reprennons le fichier `docker-compose.yml` mais partie par partie:
+Reprenons le fichier `docker-compose.yml` mais partie par partie:
 
 ```yaml
 services:
@@ -505,7 +505,7 @@ Ce n'est pas une bonne idée de ne pas indiquer le numéro de version.
 
 Lorsque Docker voit `image: joomla`, il comprend `image: joomla:stable`. Il va donc chercher à télécharger la dernière version stable. Vous ne savez donc pas, à l'avance, si vous télécharger Joomla `4.1.2` ou `4.1.3` ou ...
 
-Il est toujours préférable de spécifier la version comme p.ex.  `image: joomla:4.1.2`. Vous vous éviterez des surprises.
+Il est toujours préférable de spécifier la version comme p. ex.  `image: joomla:4.1.2`. Vous vous éviterez des surprises.
 
 Voir [https://hub.docker.com/_/joomla?tab=tags](https://hub.docker.com/_/joomla?tab=tags) pour la liste des versions disponibles.
 
@@ -539,7 +539,7 @@ Si on supprime le container Docker, nous perdons l'intégralité du site; base d
 
 ----
 
-Envie d'utiliser une autre version de PHP ? Rendez-vous sur la page des tags [https://hub.docker.com/_/joomla?tab=tags](https://hub.docker.com/_/joomla?tab=tags) et prêtez attention aux images de type `xxx-apache` (p.ex. `php8.1-apache`).
+Envie d'utiliser une autre version de PHP ? Rendez-vous sur la page des tags [https://hub.docker.com/_/joomla?tab=tags](https://hub.docker.com/_/joomla?tab=tags) et prêtez attention aux images de type `xxx-apache` (p. ex. `php8.1-apache`).
 
 Adaptez alors le fichier `docker-compose.yml` comme ceci-dessous.
 
@@ -796,7 +796,7 @@ Maintenant, si nous allons dans le dossier `./db`, nous pouvons en effet voir un
 
 ----
 
-Ajoutons les données d'exemples et p.ex. un nouvel utilisateur puis, depuis Docker Desktop, supprimons une fois encore le container comme nous l'avons fait pour les autres exercices.
+Ajoutons les données d'exemples et p. ex. un nouvel utilisateur puis, depuis Docker Desktop, supprimons une fois encore le container comme nous l'avons fait pour les autres exercices.
 
 Puisque, au terme de ce chapitre, nous avons synchroniser et les fichiers et la base de données; au lieu de tout perdre, nous nous attendons tout récupérer. Voyons ce qu'il en est. 
 

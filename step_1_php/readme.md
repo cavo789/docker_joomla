@@ -2,7 +2,7 @@
 
 Prenons le temps de découvrir Docker... Grâce à lui, il n'est plus nécessaire d'installer PHP ou Apache pour faire tourner un site web.
 
-On retrouve sur [Docker Hub](https://hub.docker.com) un très grand nombre "d'images" qui permettent d'exécuter des logiciels comme PHP, PHP+Apache, MySQL et bien, bien d'autre choses. 
+On retrouve sur [Docker Hub](https://hub.docker.com) un très grand nombre "d'images" qui permettent d'exécuter des logiciels comme PHP, PHP+Apache, MySQL et bien, bien d'autres choses. 
 
 ----
 
@@ -20,7 +20,7 @@ Nous changerons ensuite la version de PHP de `7.4` vers `8.1` en juste quelques 
 
 <!-- .slide: data-background="./images/background.png" data-background-size="cover" -->
 
-Nous aurons besoin d'une image Docker qui inclus PHP et Apache pour faire tourner notre script. Par chance, une telle image existe :-)
+Nous aurons besoin d'une image Docker qui inclut PHP et Apache pour faire tourner notre script. Par chance, une telle image existe :-)
 
 Nous utiliserons les instructions `docker run`.
 

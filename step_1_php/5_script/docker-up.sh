@@ -32,7 +32,7 @@ fi
 #       -v $(pwd)/src:/var/www/html nous permet donc de changer nos fichiers en local et que
 #           le changement soit immédiatement reflété dans le container Docker
 # -p $portNumber:80 va faire correspondre le port 80 (Apache) du container Docker avec le port
-#       tel qu'initialisé (p.ex. 81) de notre ordinateur. Ainsi, on aura une URL telle que,
+#       tel qu'initialisé (p. ex. 81) de notre ordinateur. Ainsi, on aura une URL telle que,
 #       par exemple, http://127.0.0.1:81 (si $portNumber est initialisé à 81)
 # --name "$containerName" est juste là pour donner un nom à notre container. Ce n'est pas
 #       obligatoire; si on ne le fait pas, un nom aléatoire est généré (par exemple "beautiful_euclid")

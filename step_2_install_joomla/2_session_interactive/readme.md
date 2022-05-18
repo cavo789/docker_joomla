@@ -1,10 +1,10 @@
 # Étape 2.2 - Session interactive
 
-Si on lance `Docker Desktop` et qu'on se rends dans la liste des containers puis qu'on déplie le container en cours, on peut voir que le nom du service Apache est `1_installation-joomla-1` (c'est-à-dire le nom du dossier en cours suivi du nom du service suivi du chiffre `1`).
+Si on lance `Docker Desktop` et qu'on se rend dans la liste des containers puis qu'on déplie le container en cours, on peut voir que le nom du service Apache est `1_installation-joomla-1` (c'est-à-dire le nom du dossier en cours suivi du nom du service puis du chiffre `1`).
 
 On retrouve aussi le nom avec la ligne de commande `docker container list`.
 
-Du coup `docker exec -it 1_installation-joomla-1 /bin/bash` permet de lancer une console dans le container et de se promener dans l'arborescence du l'installation Joomla.
+Du coup `docker exec -it 1_installation-joomla-1 /bin/bash` permets de lancer une console dans le container et de se promener dans l'arborescence de l'installation Joomla.
 
 ----
 

@@ -74,7 +74,7 @@ Notre application étant en cours d'exécution, on peut y accéder depuis l'URL 
 
 ----
 
-Reprennons le fichier `docker-compose.yml` mais partie par partie:
+Reprenons le fichier `docker-compose.yml` mais partie par partie:
 
 ```yaml
 services:
@@ -103,7 +103,7 @@ services:
       JOOMLA_DB_PASSWORD: example
 ```
 
-On définit ici la couche application (Joomla) sans préciser de version. Ce sera donc la dernière version `stable` de ce moment-là. On dit à Joomla que le serveur de base de données associé sera `joomladb` qu'on a définit plus haut, on indique que le port sera le port `80` et on définit aussi deux variable d'environnements pour préciser que le nom de la base de données sera `joomladb` et que le mot de passe associé est `example`.
+On définit ici la couche application (Joomla) sans préciser de version. Ce sera donc la dernière version `stable` de ce moment-là. On dit à Joomla que le serveur de base de données associé sera `joomladb` qu'on a définit plus haut, on indique que le port sera le port `80` et on définit aussi deux variables d'environnement pour préciser que le nom de la base de données sera `joomladb` et que le mot de passe associé est `example`.
 
 ----
 
@@ -111,9 +111,9 @@ On définit ici la couche application (Joomla) sans préciser de version. Ce ser
 
 Ce n'est pas une bonne idée de ne pas indiquer le numéro de version.
 
-Lorsque Docker voit `image: joomla`, il comprend `image: joomla:stable`. Il va donc chercher à télécharger la dernière version stable. Vous ne savez donc pas, à l'avance, si vous télécharger Joomla `4.1.2` ou `4.1.3` ou ...
+Lorsque Docker voit `image: joomla`, il comprend `image: joomla:stable`. Il va donc chercher à télécharger la dernière version stable. Vous ne savez donc pas, à l'avance, si vous téléchargez Joomla `4.1.2` ou `4.1.3` ou ...
 
-Il est toujours préférable de spécifier la version comme p.ex.  `image: joomla:4.1.2`. Vous vous éviterez des surprises.
+Il est toujours préférable de spécifier la version comme p. ex.  `image: joomla:4.1.2`. Vous vous éviterez des surprises.
 
 Voir [https://hub.docker.com/_/joomla?tab=tags](https://hub.docker.com/_/joomla?tab=tags) pour la liste des versions disponibles.
 
@@ -143,13 +143,13 @@ Nous venons d'installer Joomla et MySQL. Si on exécute `ls -l` (ou `dir` sous D
 
 Comme nous l'avons vu lors de l'étape 1 d'introduction; tout se passe au sein du container. Comme si c'était une boîte noire. Les fichiers ont été installés dans le container, pas sur notre ordinateur.
 
-Si on supprime le container Docker, nous perdons l'intégralité du site; base de données y compris.
+Si on supprime le container Docker, nous perdons l'intégralité du site; base de données y comprise.
 
 ----
 
-Envie d'utiliser une autre version de PHP ? Rendez-vous sur la page des tags [https://hub.docker.com/_/joomla?tab=tags](https://hub.docker.com/_/joomla?tab=tags) et prêtez attention aux images de type `xxx-apache` (p.ex. `php8.1-apache`).
+Envie d'utiliser une autre version de PHP ? Rendez-vous sur la page des tags [https://hub.docker.com/_/joomla?tab=tags](https://hub.docker.com/_/joomla?tab=tags) et prêtez attention aux images de type `xxx-apache` (p. ex. `php8.1-apache`).
 
-Adaptez alors le fichier `docker-compose.yml` comme ceci-dessous.
+Adaptez alors le fichier `docker-compose.yml` comme ci-dessous.
 
 ```yaml
 services:

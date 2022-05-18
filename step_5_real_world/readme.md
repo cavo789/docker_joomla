@@ -20,7 +20,7 @@ Faites de même pour le client 2, rendez-vous dans le dossier du client concern�
 
 <!-- .slide: data-background="./images/step_5_real_world/images/containers.jpg" data-background-size="cover" -->
 
-Pour utiliser des ports différents, adaptez le fichier `docker-compose.yml` et changer la ligne
+Pour utiliser des ports différents, adaptez le fichier `docker-compose.yml` et changez la ligne suivante:
 
 ```yaml
 ports:
@@ -40,8 +40,8 @@ Pour ce client-là, l'URL deviendra alors `http://127.0.0.1:81`.
 
 Vous n'auriez plus de souci d'URL, d'alias, de conflits (le client 1 est toujours sous PHP `7.x` mais le client 2 sous PHP `8.x`).
 
-Plus de risque non plus que la base de données de l'un écrase celle de l'autre.
+Plus de risque non plus que la base de données de l'un n'écrase celle de l'autre.
 
-Et vous pourriez-même créer une image Docker (avec la commande `docker build`), l'héberger sur votre Docker Hub privé (`docker push`) et lui dire qu'il peut la récupérer (`docker pull`) pour installer le site en local chez lui.
+Et vous pourriez même créer une image Docker (avec la commande `docker build`), l'héberger sur votre Docker Hub privé (`docker push`) et lui dire qu'il peut la récupérer (`docker pull`) pour installer le site en local chez lui.
 
 Et comme tout est en local, <mark>il est très facile également d'utiliser des outils de versionning type GitHub</mark> pour conserver trace des changements ainsi que simplifier le travail collaboratif.

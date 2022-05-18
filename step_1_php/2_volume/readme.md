@@ -28,11 +28,11 @@ Explication des nouveaux arguments utilisés dans notre commande `docker run --d
 
 ----
 
-Éditons le fichier `index.php` et changeons p.ex. `Bruxelles` en `la Belgique`.
+Éditons le fichier `index.php` et changeons p. ex. `Bruxelles` en `la Belgique`.
 
 Retournons dans notre navigateur et appuyons sur la touche <kbd>F5</kbd>. Le changement est immédiat.
 
-![La modification est répércutée immédiatement après un refresh](./images/localhost_step_1_2_1.png)
+![La modification est repércutée immédiatement après un refresh](./images/localhost_step_1_2_1.png)
 
 ----
 

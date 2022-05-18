@@ -66,18 +66,18 @@ exit
 
 <!-- .slide: data-background="./images/localhost_step_1_1a_1.png" data-background-size="cover" -->
 
-Retournons dans notre navigateur et ... Bingo ! Notre première instance Docker éxécutant un script PHP !
+Retournons dans notre navigateur et ... Bingo ! Notre première instance Docker exécutant un script PHP !
 
 ----
 
-Reprennons l'instruction que nous avions utilisé :
+Reprenons l'instruction que nous avions utilisée :
 
 ```bash
 docker run --detach --name step_1_1a -p 80:80 php:7.4.29-apache
 ```
 
 On voit donc qu'on cible la version `7.4.29` de PHP. En se rendant sur la page
-[https://hub.docker.com/_/php?tab=tags](https://hub.docker.com/_/php?tab=tags) et en cherchant des images de type `-apache`, on retrouve p.ex. les versions `php:8.1.1-apache` ou encore `php:8.1.5-apache`.
+[https://hub.docker.com/_/php?tab=tags](https://hub.docker.com/_/php?tab=tags) et en cherchant des images de type `-apache`, on retrouve p. ex. les versions `php:8.1.1-apache` ou encore `php:8.1.5-apache`.
 
 ----
 

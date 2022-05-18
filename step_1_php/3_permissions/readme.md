@@ -6,11 +6,11 @@
 
 ----
 
-Les fichiers qui sont créés depuis Docker sont des fichiers créés par le système d'exploitation Linux (**même si vous êts sous Windows sur votre machine host**).
+Les fichiers qui sont créés depuis Docker sont des fichiers créés par le système d'exploitation Linux (**même si vous êtes sous Windows sur votre machine host**).
 
 Contrairement à Windows, le système des permissions Linux est plus strict avec une notion de groupe-utilisateur-reste_du_monde (le fameux `chmod`).
 
-Imaginons que le script PHP qui s'exécute dans Docker serait le suivant, càd créer un fichier dans le dossier courant :
+Imaginons que le script PHP qui s'exécute dans Docker serait le suivant, c.-à-d. créer un fichier dans le dossier courant :
 
 ```php
 $filename=__DIR__."/maintenant.txt";
@@ -49,7 +49,7 @@ docker run --detach --name step_1_3_2 -p 83:80 -u $UID:$GID -v $(pwd):/var/www/h
 
 * `--name step_1_3` : comme d'habitude, utilisons un nom précis,
 * `-p 83:80` : cette fois-ci, ce sera le port `83`,
-* `-u $UID:$GID` : ce paramètre est le plus important ici, on indique à Docker qu'on veut que les fichiers / dossiers qui seraient créés depuis le container n'utilisent par `root:root` mais notre utilisateur actif ainsi que son groupe d'appartenance (p.ex. `christophe:christophe`)
+* `-u $UID:$GID` : ce paramètre est le plus important ici, on indique à Docker qu'on veut que les fichiers / dossiers qui seraient créés depuis le container n'utilisent par `root:root` mais notre utilisateur actif ainsi que son groupe d'appartenance (p. ex. `christophe:christophe`)
 
 ----
 

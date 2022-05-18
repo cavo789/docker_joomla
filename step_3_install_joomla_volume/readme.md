@@ -6,7 +6,7 @@
 
 > Soyez certain d'être dans le sous-dossier step_3_install_joomla_volume pour exécuter les exemples fournis.
 
-Nous venons d'installer Joomla, on a pu installer l'une ou l'autre version de Joomla mais on constate que nous n'avons rien en local : si on supprime le container, on perds tout.
+Nous venons d'installer Joomla, on a pu installer l'une ou l'autre version de Joomla mais on constate que nous n'avons rien en local : si on supprime le container, on perd tout.
 
 ----
 
@@ -26,7 +26,7 @@ Un volume peut être "interne" ou "externe". Interne veut dire que c'est Docker 
 
 On pourra supprimer le container Joomla mais tant qu'on ne supprime pas le volume interne, il reste en mémoire et Docker peut le réutiliser.
 
-Si on supprime et le container et le volume alors on perds tout.
+Si on supprime et le container et le volume alors on perd tout.
 
 ----
 
@@ -38,7 +38,7 @@ On va *mapper* le site Joomla à notre disque dur. Quand nous avions lancé une 
 
 Il faut adapter le fichier `docker-compose.yml` et, pour le service Joomla, d'ajouter la gestion des *volumes*. Nous allons faire correspondre le dossier `site_joomla` de notre ordinateur avec le site Joomla.
 
-**D'abord, pour éviter tout problème de droits d'accès, veuillez créer le dossier `site_joomla` vous même.**
+**D'abord, pour éviter tout problème de droits d'accès, veuillez créer le dossier `site_joomla` vous-même.**
 
 ```bash
 mkdir -p site_joomla
@@ -61,15 +61,15 @@ Retournons dans Docker Desktop et supprimons notre container Joomla en cours d'e
 
 Puis relançons la commande `docker compose up --detach`; on pourra constater qu'on aura bien, lors de la création de l'image, les fichiers de Joomla qui seront synchronisés avec notre disque dur.
 
-Allez voir le contenu du dossier `site_joomla` sur votre ordinateur : nous avons l'intégralité des fichiers du site; nous avons donc synchronisés le container et notre machine.
+Allez voir le contenu du dossier `site_joomla` sur votre ordinateur : nous avons l'intégralité des fichiers du site; nous avons donc synchronisé le container et notre machine.
 
 ## Étape 3.1 - Droits d'accès sous Linux
 
-Tout comme nous l'avons vu précédement, les fichiers / dossiers créés depuis Docker ne le sont pas avec notre utilisateur actif mais celui définit dans l'image. Pour PHP, nous l'avons vu, c'était l'utilisateur `root`.
+Tout comme nous l'avons vu précédemment, les fichiers / dossiers créés depuis Docker ne le sont pas avec notre utilisateur actif mais celui défini dans l'image. Pour PHP, nous l'avons vu, c'était l'utilisateur `root`.
 
 Pour Joomla, c'est `www-data` et on le voit lorsqu'on fait un `ls -al`. Il nous faut, ici aussi, changer cela pour utiliser notre utilisateur local.
 
-Tout d'abord supprimons le précédent dossier `site_joomla` puis recréons-le (afin d'avoir les bonnes permissions):
+Tout d'abord, supprimons le précédent dossier `site_joomla` puis recréons-le (afin d'avoir les bonnes permissions):
 
 ```bash
 sudo rm -rf site_joomla
@@ -78,7 +78,7 @@ mkdir -p site_joomla
 
 ----
 
-Adaptons le fichier `docker-compose.yml` et pour y ajouter la notion de l'utilisateur mais pour cela il nous faudra deux valeurs, le `user id` et le `group id`.
+Adaptons le fichier `docker-compose.yml` et pour y ajouter la notion de l'utilisateur, mais pour cela il nous faudra deux valeurs, le `user id` et le `group id`.
 
 Sous Linux, on peut retrouver l'ID de son utilisateur et de son groupe comme ceci:
 
@@ -100,7 +100,7 @@ Relançons `docker compose up --detach` et, maintenant, les fichiers dans le dos
 
 ## Étape 3.2 - Ajout d'une image
 
-Pour l'exemple, si on se rends dans le gestionnaire des médias de Joomla et qu'on ajoute une image, nous verrons bien cette image apparaître sur notre machine dans le dossier `./site_web/media`.
+Pour l'exemple, si on se rend dans le gestionnaire des médias de Joomla et qu'on ajoute une image, nous verrons bien cette image apparaître sur notre machine dans le dossier `./site_web/media`.
 
 Notre synchronisation fonctionne parfaitement (et dans les deux sens bien sûr).
 
@@ -139,6 +139,6 @@ Notre service `joomla` au complet dans le fichier `docker-compose.yml`.
 
 À la fin de ce chapitre, nous avons appris :
 
-* synchroniser les fichiers de Joomla avec notre dique dur.
+* synchroniser les fichiers de Joomla avec notre disque dur.
 
 Si nous supprimons le container Joomla, nous n'allons plus perdre les fichiers de notre site web. Mais nous perdrons bien la base de données puisqu'elle n'est pas encore synchronisée localement. C'est ce que nous allons apprendre dans le prochain et dernier chapitre.

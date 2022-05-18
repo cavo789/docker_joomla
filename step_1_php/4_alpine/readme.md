@@ -24,7 +24,7 @@ Là où l'image officielle fait 458MB, l'image alpine n'est fait plus de 62. Pr�
 
 L'intérêt de ce type d'images est donc de réduire l'occupation mémoire de votre ordinateur et de vous permettre de lancer plusieurs images sans trop de ralentissement. 
 
-Cela ne fonctionne que si et seulement si vos besoins sont hyper simples. Vous souhaitez p.ex. installer quelque chose avec `apt-get install` ? Impossible car le gestionnaire de paquets `apt` n'est pas installé. Vous avez vraiment le strict minimum et vous aurez à tout installer vous-même selon vos besoins.
+Cela ne fonctionne que si et seulement si vos besoins sont hyper simples. Vous souhaitez p. ex. installer quelque chose avec `apt-get install` ? Impossible car le gestionnaire de paquets `apt` n'est pas installé. Vous avez vraiment le strict minimum et vous aurez à tout installer vous-même selon vos besoins.
 
 ----
 
