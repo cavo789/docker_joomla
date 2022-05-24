@@ -176,7 +176,7 @@ Si vous êtes sous Windows (MS DOS), remplacez `$(pwd)` par `%CD%` dans l'instru
 
 ----
 
-Rendez-nous à l'URL [http://127.0.0.1:81](http://127.0.0.1:81).
+Rendons-nous à l'URL [http://127.0.0.1:81](http://127.0.0.1:81).
 
 Notre script s'exécute immédiatement. Nous ne devons plus lancer une console et créer à la main le fichier `index.php`.
 
@@ -208,7 +208,7 @@ Retournons dans notre navigateur et appuyons sur la touche <kbd>F5</kbd>. Le cha
 
 Dans la troisième étape de ce chapitre, nous allons garantir que les fichiers qui seraient créés depuis Docker le soient avec les bonnes permissions (`user:group` et `chmod`).
 
-### Étape 1.3 - Gestion des permissions - Linux
+### Étape 1.3 - Extra - Gestion des permissions - Linux
 
 > Ce chapitre ne s'applique pas aux utilisateurs qui travaillent sous Windows (mais bien si vous travaillez sous WSL).
 
@@ -434,7 +434,11 @@ Créons ce fichier dans un dossier de votre disque dur.
 
 Ouvrez une console et rendez-vous dans ce dossier.
 
-Ceci fait, lancez la commande `docker compose up --detach`.
+Ceci fait, lancez la commande ci-dessous:
+
+```bash
+docker compose up --detach
+```
 
 Docker va commencer à télécharger `joomla` et `joomladb`, les deux services mentionnés dans le fichier `docker-compose.yml`.
 

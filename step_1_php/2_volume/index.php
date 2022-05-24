@@ -9,7 +9,7 @@
   <body>
   <section class="section">
     <div class="container">
-      <h1 class="title">Bonjour Bruxelles !, je suis un script s'exécutant depuis Docker</h1>
+      <h1 class="title">Bonjour la Belgique !, je suis un script s'exécutant depuis Docker</h1>
 
       <p class="subtitle">
         <?php

@@ -42,7 +42,11 @@ Créons ce fichier dans un dossier de votre disque dur.
 
 Ouvrez une console et rendez-vous dans ce dossier.
 
-Ceci fait, lancez la commande `docker compose up --detach`.
+Ceci fait, lancez la commande ci-dessous:
+
+```bash
+docker compose up --detach
+```
 
 Docker va commencer à télécharger `joomla` et `joomladb`, les deux services mentionnés dans le fichier `docker-compose.yml`.
 

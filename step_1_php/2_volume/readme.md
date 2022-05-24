@@ -12,7 +12,7 @@ Si vous êtes sous Windows (MS DOS), remplacez `$(pwd)` par `%CD%` dans l'instru
 
 ----
 
-Rendez-nous à l'URL [http://127.0.0.1:81](http://127.0.0.1:81).
+Rendons-nous à l'URL [http://127.0.0.1:81](http://127.0.0.1:81).
 
 Notre script s'exécute immédiatement. Nous ne devons plus lancer une console et créer à la main le fichier `index.php`.
 

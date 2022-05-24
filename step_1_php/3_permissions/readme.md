@@ -1,4 +1,4 @@
-# Étape 1.3 - Gestion des permissions - Linux
+# Étape 1.3 - Extra - Gestion des permissions - Linux
 
 > Ce chapitre ne s'applique pas aux utilisateurs qui travaillent sous Windows (mais bien si vous travaillez sous WSL).
 
